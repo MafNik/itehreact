@@ -1,23 +1,26 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ProductCard from './ProductCard';
 
 function Ponuda({ products }) {
   const [minPrice, setMinPrice] = useState('');
   const [maxPrice, setMaxPrice] = useState('');
+  const [productName, setProductName] = useState('');
   const [filteredProducts, setFilteredProducts] = useState(products);
 
-  const handleFilter = () => {
+  useEffect(() => {
     const filtered = products.filter(
       (proizvod) =>
-        proizvod.price >= parseInt(minPrice) && proizvod.price <= parseInt(maxPrice)
+        (proizvod.price >= parseInt(minPrice) || minPrice === '') &&
+        (proizvod.price <= parseInt(maxPrice) || maxPrice === '') &&
+        proizvod.name.toLowerCase().includes(productName.toLowerCase())
     );
     setFilteredProducts(filtered);
-  };
+  }, [minPrice, maxPrice, productName, products]);
 
   const handleReset = () => {
     setMinPrice('');
     setMaxPrice('');
-    setFilteredProducts(products);
+    setProductName('');
   };
 
   return (
@@ -36,7 +39,12 @@ function Ponuda({ products }) {
           value={maxPrice}
           onChange={(e) => setMaxPrice(e.target.value)}
         />
-        <button onClick={handleFilter}>Filtriraj</button>
+        <input
+          type="text"
+          placeholder="Naziv proizvoda"
+          value={productName}
+          onChange={(e) => setProductName(e.target.value)}
+        />
         <button onClick={handleReset}>Resetuj</button>
       </div>
       <div className="kartice-container">
