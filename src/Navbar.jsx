@@ -2,7 +2,7 @@ import React from "react";
  
 import { Link } from "react-router-dom";
 
-function NavBar() {
+function Navbar() {
   return (
     <div className="navbar">
      
@@ -10,9 +10,10 @@ function NavBar() {
        
  
  
+      <Link to="/ponuda" className="navbar-items"> Ponuda </Link>
 
         <Link to="/kontakt" className="navbar-items"> Kontakt </Link>
     </div>
   );
 }
-export default NavBar;
+export default Navbar;

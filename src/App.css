@@ -127,3 +127,76 @@
   text-decoration: none;
   color: antiquewhite;
 }
+.kartica {
+  margin: 10px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  width: 300px;
+  padding: 50px;
+}
+
+.kartica img {
+  width: 100%;
+ 
+  object-fit: cover;
+}
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  
+  min-height: 250px;
+  
+}
+.kartica h3 {
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.kartica p {
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.kartica button {
+  background-color: #ff6600;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.kartica button:hover {
+  background-color: #ff5500;
+}
+.ponuda {
+  padding: 20px;
+}
+
+.ponuda h2 {
+  font-size: 24px;
+  margin-bottom: 16px;
+}
+
+.kartice-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+}
+
+@media (max-width: 768px) {
+  .kartice-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 576px) {
+  .kartice-container {
+    grid-template-columns: 1fr;
+  }
+}
+
